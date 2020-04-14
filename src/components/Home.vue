@@ -1,7 +1,6 @@
 <template>
 	<div class="home">
-		<button @click="signout()" class="btn btn-primary"> déconnexion </button>
-
+		<headbar> </headbar>
 		<grid> </grid>
 	</div>
 
@@ -11,6 +10,7 @@
 	import firebase from 'firebase'
 	import io from "socket.io-client";
 	import Grid from './Grid'
+	import Headbar from './Headbar'
 
 	export default {
 		name: 'home',
@@ -22,6 +22,7 @@
 		},
 		components: {
 			grid: Grid,
+			headbar: Headbar
 		},
 		created() {
 			this.socket = io("https://monopolloi.herokuapp.com");
@@ -33,11 +34,7 @@
 			});
         },
 		methods: {
-			signout : function() {
-				firebase.auth().signOut().then(() => {
-					this.$router.push('/login')
-				})
-			},
+			
 			move(direction) { 
 				console.log(direction)
 				this.socket.emit("move", direction); 

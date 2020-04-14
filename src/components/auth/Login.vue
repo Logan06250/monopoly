@@ -1,7 +1,6 @@
 <template>
     <div class="login">
         <form class="form-login">
-
             <div id="user-not-found" style="display: none">
                 <div class="alert alert-danger" role="alert">
                     Utilisateur inconnu !
@@ -72,7 +71,10 @@ import firebase from 'firebase'
 
 .form-login {
     position: relative;
-    margin-top: 50%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10%;
     margin-right: 10%;
     margin-left: 10%;
 }

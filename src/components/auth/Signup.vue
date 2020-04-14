@@ -63,10 +63,4 @@
 
 <style>
 
-.form-login {
-    position: relative;
-    margin-top: 50%;
-    margin-right: 10%;
-    margin-left: 10%;
-}
 </style>
