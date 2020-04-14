@@ -1,7 +1,11 @@
 <template>
 	<div class="home">
-		<headbar> </headbar>
-		<grid> </grid>
+		<headbar v-bind:socket="socket" v-bind:users="users"> </headbar>
+		<div v-for="user in users">
+			<label>
+				{{ user }}
+			</label>
+		</div>
 	</div>
 
 </template>
@@ -17,24 +21,22 @@
 		data(){
 			return {
 				socket: {}, 
+				users: []
 			};
-			
 		},
 		components: {
 			grid: Grid,
 			headbar: Headbar
 		},
 		created() {
-			this.socket = io("https://monopolloi.herokuapp.com");
-
+			//this.socket = io("https://monopolloi.herokuapp.com");
+			this.socket = io("localhost:3000");
 		},
 		mounted() {
-			this.socket.on("position", data => {
-				
-			});
+			this.socket.emit("name", firebase.auth().currentUser.displayName)
+			this.socket.on("users", users => this.users = users )
         },
 		methods: {
-			
 			move(direction) { 
 				console.log(direction)
 				this.socket.emit("move", direction); 

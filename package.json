@@ -7,7 +7,8 @@
     "build": "webpack -p --mode production",
     "build:dev": "webpack -d --mode development",
     "dev": "webpack-dev-server --progress",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --progress"
   },
   "keywords": [
     "babel",

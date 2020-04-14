@@ -74,7 +74,7 @@ import firebase from 'firebase'
     background: white;
     padding: 10px;
     border-radius: 10px;
-    margin-top: 10%;
+    margin-top: 5vh;
     margin-right: 10%;
     margin-left: 10%;
 }

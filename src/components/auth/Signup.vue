@@ -10,7 +10,13 @@
                 </div>
             </div>
 
-            
+            <div id="weak-password" style="display: none">
+                <div class="alert alert-danger" role="alert">
+                    Mot de passe trop court (6 caractères minimum)
+                </div>
+            </div>
+
+
             <div class="form-group">
                 <label for="email">Adresse mail</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
@@ -20,8 +26,12 @@
                 <label for="password">Mot de passe</label>
                 <input type="password" class="form-control" id="password">
             </div>
+            <div class="form-group">
+                <label for="pseudo">Pseudo</label>
+                <input type="pseudo" class="form-control" id="pseudo" required>
+            </div>
             <center>
-                <button class="btn btn-primary" @click="signup()">Creer un compte</button>
+                <button type="submit" class="btn btn-primary" @click="signup()">Creer un compte</button>
             </center>
         </form>
     </div>
@@ -41,7 +51,12 @@
             },
             signup : function() {
                 this.next = "/home"
-                firebase.auth().createUserWithEmailAndPassword(document.getElementById('email').value , document.getElementById('password').value).catch(error => {
+                firebase.auth().createUserWithEmailAndPassword(document.getElementById('email').value , document.getElementById('password').value)
+                .then(function(result) {
+                    return result.user.updateProfile({
+                        displayName: document.getElementById('pseudo').value
+                    })
+                }).catch(error => {
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     
@@ -52,6 +67,9 @@
 
                     if(errorCode == "auth/email-already-in-use"){
                         $('#email-already-in-use').css('display', '')
+                    }
+                    if(errorCode == "auth/weak-password"){
+                        $('#weak-password').css('display', '')
                     }
                 }).then(() => {
 					this.$router.push(this.next)

@@ -15,7 +15,6 @@ export const db = app.firestore()
 
 // export const une_ref = db.collection('ref')
 
-
 export const functions = app.functions()
 
 
