@@ -1,5 +1,6 @@
 <template>
     <div id="headbar">
+        <h1>Lolo le + bo</h1>
         <button @click="signout()" class="btn btn-primary"> déconnexion </button>
     </div>
 </template>
