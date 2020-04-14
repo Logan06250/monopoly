@@ -29,8 +29,8 @@
 			headbar: Headbar
 		},
 		created() {
-			//this.socket = io("https://monopolloi.herokuapp.com");
-			this.socket = io("localhost:3000");
+			this.socket = io("https://monopolloi.herokuapp.com");
+			//this.socket = io("localhost:3000");
 		},
 		mounted() {
 			this.socket.emit("name", firebase.auth().currentUser.displayName)
