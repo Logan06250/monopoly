@@ -16,7 +16,7 @@
 		name: 'home',
 		data(){
 			return {
-				socket: {},
+				socket: {}, 
 			};
 			
 		},
