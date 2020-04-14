@@ -1,7 +1,8 @@
 <template>
     <div id="headbar">
-        <button @click="signout()" class="btn btn-primary"> déconnexion </button>
-        <label> {{ users.length }}</label>
+        <a class="float-left"> {{ users.length }} joueur(s) </a>
+        <a @click="signout()" class="float-right" style='margin-right: 5px'> <i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+        <center> Monopologs </center>
     </div>
 </template>
 
@@ -26,11 +27,9 @@ export default {
 </script>
 
 <style>
-
 #headbar {
-    position: relative;
-    height: 30px;
-    background-color: rgb(41, 0, 136);
+    color: white;
+    background-color: rgb(11, 4, 29);
 }
 
 </style>
