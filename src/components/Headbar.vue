@@ -13,15 +13,13 @@ import io from "socket.io-client";
 export default {
     name: "headbar",
     props: ['socket', 'users'],
-    created: {
-    },
     methods: {
         signout () {
 			firebase.auth().signOut().then(() => {
                 this.socket.close()
 				this.$router.push('/login')
 			})
-		},
+		}
     }
 }
 </script>

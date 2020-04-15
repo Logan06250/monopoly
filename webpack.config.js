@@ -95,7 +95,7 @@ module.exports = (env, argv) => ({
       dontCacheBustUrlsMatching: /\.\w{6}\./
     })
   ],
-
+  
   optimization: {
     splitChunks: {
       chunks: 'all',

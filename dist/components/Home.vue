@@ -7,7 +7,9 @@
 			</label>
 		</div>
 		<div>
-			<canvas ref="game" width="640" height="480" style="border: 1px solid black;"></canvas>
+			<center>
+				<canvas ref="game" width="250" height="450" style="border: 1px solid black;"></canvas>
+			</center>
 		</div>
 		<p>
             <button v-on:click="move('right')">Right</button>
@@ -40,8 +42,8 @@
 			headbar: Headbar
 		},
 		created() {
-			this.socket = io("https://monopolloi.herokuapp.com");
-			//this.socket = io("localhost:3000");
+			//this.socket = io("https://monopolloi.herokuapp.com");
+			this.socket = io("localhost:3000");
 			this.socket.on("users", users => this.users = users )
 
 			this.socket.emit("name", firebase.auth().currentUser.displayName)

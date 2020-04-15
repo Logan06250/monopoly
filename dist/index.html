@@ -23,6 +23,8 @@
   <!-- MDBootstrap Datatables  -->
   <link href="css/datatables.min.css" rel="stylesheet">
 
+  <link rel="manifest" href="/manifest.json" />
+
   <!-- MDBootstrap Datatables  -->
   <script type="text/javascript" src="js/datatables.min.js"></script>
 
@@ -37,7 +39,15 @@
 <script type="text/javascript" src="runtime~main.js"></script><script type="text/javascript" src="vendors~main.js"></script><script type="text/javascript" src="main.js"></script></body>
 </html>
 
-<script>  
+<script>
+  if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker-cache.js', { 
+      scope: '.'})
+    .then(() => {
+      console.log('Service Worker Registered')
+    })
+}
 </script>
 
 <style type="text/css">
