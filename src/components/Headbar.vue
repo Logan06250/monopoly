@@ -27,6 +27,7 @@ export default {
 <style>
 #headbar {
     position: fixed;
+    width: 100vw;
     color: white;
     background-color: rgb(11, 4, 29);
 }
