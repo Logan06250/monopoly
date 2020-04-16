@@ -8,7 +8,7 @@
 		</div>
 		<div>
 			<center>
-				<canvas ref="game" width="250" height="450" style="border: 1px solid black;"></canvas>
+				<canvas class="img-fluid" id="canvas" ref="game" width="250" height="450" style="border: 1px solid black;"></canvas>
 			</center>
 		</div>
 		<p>
@@ -44,9 +44,11 @@
 		created() {
 			//this.socket = io("https://monopolloi.herokuapp.com");
 			this.socket = io("localhost:3000");
-			this.socket.on("users", users => this.users = users )
 
+			this.socket.on("users", users => this.users = users )
 			this.socket.emit("name", firebase.auth().currentUser.displayName)
+
+			
 		},
 		mounted() {
 			this.context = this.$refs.game.getContext("2d");
@@ -66,9 +68,15 @@
 			});
         },
 		methods: {
-			move(direction) { 
+			move(direction) { //250x 450y
+
+				this.context.fillRect(0, 0, 100, 100);
+				this.context.fillRect(200, 400, 50, 50);
+
+				this.context.clearRect(200, 400, 50, 50);
+				/*
 				console.log(direction)
-				this.socket.emit("move", direction); 
+				this.socket.emit("move", direction); */
 			},
 		}
 	};
@@ -78,6 +86,15 @@
 .home {
 color: white
 
+}
+#canvas {
+	position: absolute;
+	background: url(canvas.jpg);
+	height: 70vh;
+	background-size: cover;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 	
 </style>
