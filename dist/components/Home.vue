@@ -8,7 +8,7 @@
 		</div>
 		<div>
 			<center>
-				<canvas class="img-fluid" id="canvas" ref="game" width="250" height="450" style="border: 1px solid black;"></canvas>
+				<canvas class="img-fluid" id="canvas" ref="game" width="260" height="450" style="border: 1px solid black;"></canvas>
 			</center>
 		</div>
 		<p>
@@ -89,7 +89,7 @@ color: white
 }
 #canvas {
 	position: absolute;
-	background: url(canvas.jpg);
+	background: url(PLATO.png);
 	height: 70vh;
 	background-size: cover;
 	top: 50%;
