@@ -7,7 +7,9 @@
 			</label>
 		</div>
 
-		<grid> </grid>
+		<lobby></lobby>
+
+		<!--<grid> </grid>-->
 	</div>
 
 </template>
@@ -22,6 +24,7 @@
 	import io from "socket.io-client";
 	import Grid from './Grid'
 	import Headbar from './Headbar'
+	import Lobby from './Lobby'
 	import Konva from "konva"
 
 	export default {
@@ -38,7 +41,8 @@
 		},
 		components: {
 			grid: Grid,
-			headbar: Headbar
+			headbar: Headbar,
+			lobby: Lobby
 		},
 		created() {
 			//this.socket = io("https://monopolloi.herokuapp.com");
@@ -76,7 +80,7 @@ color: white
 #canvas {
 
 }
-#container {
+/*#container {
 
 	position: absolute;
 	top: 50%;
@@ -87,7 +91,7 @@ color: white
 	transform: translate(-50%, -50%);
 
 
-}
+}*/
 #test {
 	position: absolute;
 	top: 5%;

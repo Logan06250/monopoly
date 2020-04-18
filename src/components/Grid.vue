@@ -4,7 +4,7 @@
 		</div>
         <p id="test">
             <button v-on:click="test1()">test1</button>
-            <button id="start" >test2</button>
+            <button id="start">test2</button>
         </p>
     </div>
 </template>
